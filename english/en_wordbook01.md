@@ -9,6 +9,7 @@ apple 사과
 ### 채소
 bell pepper 피망    
 lettuce 상추    
+leek  대파    
 piment 고추    
 
 ### 행동    
