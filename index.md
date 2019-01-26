@@ -14,6 +14,7 @@
 
 ## Chinese
 [단어장](chinese/cn_wordbook01.md)
+[일일학습_2019](chinese/cn_dailyclass_2019.md)
 
 ## Japanese
 [단어장](japanese/jp_wordbook01.md)
