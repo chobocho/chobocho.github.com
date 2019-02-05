@@ -16,6 +16,5 @@ piment 고추
 vomit 토하다    
 wander 방황하다
 
-
 ### 기타    
 consequently 그 결과, 따라서    
