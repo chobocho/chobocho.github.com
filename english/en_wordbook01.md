@@ -13,6 +13,7 @@ leek  대파
 piment 고추    
 
 ### 행동    
+retrospect 회고하다     
 vomit 토하다    
 wander 방황하다
 
