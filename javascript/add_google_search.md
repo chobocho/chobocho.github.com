@@ -1,5 +1,5 @@
 ```
-<div class="circle_orange_rectangle">
+<div>
   <div>Search Google</div>
   <form
     method="get"
