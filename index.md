@@ -5,7 +5,7 @@
 ## Java
 
 ## JavaScript    
-[예제 001](javascript/example001.md)
+[구글 검색창 달기](javascript/add_google_search.md)
 
 ## Node.js
 
