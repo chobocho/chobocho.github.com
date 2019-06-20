@@ -10,7 +10,7 @@
 ## Node.js
 
 ## Python
-[주기적으로 작업 수행하기](python/threading01.md)
+[주기적으로 작업 수행하기](python/threading01.md)     
 [파일 읽기 예제](python/file_io.md)
 
 ## English
