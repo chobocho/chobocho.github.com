@@ -3,8 +3,14 @@
 ## Android
 [Android](android/README.md)
 
+## C
+[C](c/README.md)
+
 ## CPP
 [C++](cpp/README.md)
+
+## Design pattern
+[Design pattern](designpattern/README.md)
 
 ## Java
 [Java](java/README.md)
@@ -18,6 +24,9 @@
 ## Python
 [주기적으로 작업 수행하기](python/threading01.md)    
 [파일 읽기 예제](python/file_io.md)
+
+## UML
+[UML](uml/README.md)
 
 ## English
 [단어장](english/en_wordbook01.md)
