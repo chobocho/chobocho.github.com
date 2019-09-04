@@ -6,6 +6,9 @@
 ## C
 [C](c/README.md)
 
+## Computer
+[Computer](computer/README.md)
+
 ## CPP
 [C++](cpp/README.md)
 
