@@ -27,6 +27,7 @@
 ## Python
 [주기적으로 작업 수행하기](python/threading01.md)  
 [파일 읽기 예제](python/file_io.md)  
+[List example](python/list.md)  
 [Lotto](python/lotto.md)  
 
 ## UML
