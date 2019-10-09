@@ -25,7 +25,7 @@
 [Node.js](nodejs/README.md)
 
 ## Python
-[About box](python/aboutbox.md) 
+[About box](python/aboutbox.md)   
 [주기적으로 작업 수행하기](python/threading01.md)  
 [파일 읽기 예제](python/file_io.md)  
 [숫자 개수 세기](python/count_number.md)  
