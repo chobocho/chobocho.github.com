@@ -29,8 +29,10 @@
 [주기적으로 작업 수행하기](python/threading01.md)  
 [파일 읽기 예제](python/file_io.md)  
 [숫자 개수 세기](python/count_number.md)  
+[Filter](python/filter.md)  
 [List example](python/list.md)  
 [Lotto](python/lotto.md)  
+[wxPython](python/wxpython.md)  
 
 ## UML
 [UML](uml/README.md)
