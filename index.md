@@ -16,7 +16,7 @@
 [Design pattern](designpattern/README.md)
 
 ## Go  
-[Make folder](go/make_folder.go)  
+[Make folder](go/make_folder.md)  
 
 ## Java
 [Java](java/README.md)

@@ -1,3 +1,6 @@
+# Make folder
+
+```
 package main
 
 import (
@@ -19,11 +22,11 @@ func makeDir(curDir, newName string, from, to int) {
 
     for i := from; i <= to; i++ {
         newFolder := fmt.Sprintf("%s/%s%d", curDir, newName, i)
-        fmt.Println(newFolder)
+
         err := os.MkdirAll(newFolder, os.ModePerm)
- 
         if err != nil {
            log.Fatal("MakeAll %s %s", err, newFolder)
         }
     }
 }
+```
