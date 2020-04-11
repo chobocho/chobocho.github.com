@@ -18,6 +18,9 @@
 ## Go  
 [Make folder](go/make_folder.md)  
 
+## Gradle
+[Version명 자동 업데이트](android/README.md) 
+
 ## Java
 [Java](java/README.md)
 
