@@ -15,6 +15,9 @@
 ## Design pattern
 [Design pattern](designpattern/README.md)
 
+## Dictionary
+[단어장](dictionary/index.md)
+
 ## Go  
 [Make folder](go/make_folder.md)  
 
@@ -38,6 +41,8 @@
 [Filter](python/filter.md)  
 [List example](python/list.md)  
 [Lotto](python/lotto.md)  
+[Numpy](python/numpy.md)  
+[Pandas(python/pandas.md)  
 [wxPython](python/wxpython.md)  
 
 ## UML
