@@ -39,6 +39,7 @@
 [파일 읽기 예제](python/file_io.md)  
 [숫자 개수 세기](python/count_number.md)  
 [Filter](python/filter.md)  
+[json](python/json.md)  
 [List example](python/list.md)  
 [Lotto](python/lotto.md)  
 [Numpy](python/numpy.md)  
