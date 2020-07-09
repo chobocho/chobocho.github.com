@@ -37,6 +37,7 @@
 [About box](python/aboutbox.md)   
 [주기적으로 작업 수행하기](python/threading01.md)  
 [파일 읽기 예제](python/file_io.md)  
+[소인수 분해](python/prime_number.md)  
 [숫자 개수 세기](python/count_number.md)  
 [Filter](python/filter.md)  
 [json](python/json.md)  
