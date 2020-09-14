@@ -14,8 +14,8 @@ android {
         versionInfo.load(new FileInputStream(versionPropsFile))
     } else {
         versionInfo['VERSION_HEADER'] = "0.1105"
-        versionInfo['VERSION_NUMBER'] = 1
-        versionInfo['VERSION_COUNT'] = 1
+        versionInfo['VERSION_NUMBER'] = 0
+        versionInfo['VERSION_COUNT'] = 0
         versionInfo['BUILD_COUNT'] = 0
     }
 
@@ -48,10 +48,11 @@ android {
     def alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     def thisYear =  alphabet.charAt(date.getYear() + 1900 - 2001)
     def thisMonth = alphabet.charAt(date.getMonth())
+	def monthVersion = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(versionCount)
 
     println '-------------------'
     println taskName
-    println "${versionHeader}.${thisYear}${thisMonth}${versionCount}.${buildCount}"
+    println "${versionHeader}.${thisYear}${thisMonth}${monthVersion}.${buildCount}"
     println '-------------------'
 
     defaultConfig {
@@ -59,7 +60,7 @@ android {
         minSdkVersion 23
         targetSdkVersion 28
         versionCode versionNubmer
-        versionName "${versionHeader}.${thisYear}${thisMonth}${versionCount}.${buildCount}"
+        versionName "${versionHeader}.${thisYear}${thisMonth}${monthVersion}.${buildCount}"
         setProperty("archivesBaseName", "imagematch_$versionName")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

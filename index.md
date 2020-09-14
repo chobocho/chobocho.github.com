@@ -46,6 +46,7 @@
 [Lotto](python/lotto.md)  
 [Numpy](python/numpy.md)  
 [Pandas](python/pandas.md)  
+[Shuffle](python/shuffle.md)     
 [wxPython](python/wxpython.md)  
 
 ## UML
