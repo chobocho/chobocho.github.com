@@ -8,5 +8,8 @@
 	memoList.push(["[유머] 제갈량", "https://m.clien.net/service/board/park/15129599?type=recommend", "", "유머, 제갈량, 클리앙"]);
     memoList.push(["부산 개발자 커뮤니티", "https://cafe.naver.com/itcommuinty", "", "카페, cafe"]);
 	memoList.push(["GeeksForGeeks", "https://www.geeksforgeeks.org/", "", "자료구조, 알고리즘, Data structure, Algorithms"]);
+	memoList.push(["HP Museum", "https://www.hpmuseum.org/", "", "HP IT 박물관"]);
+	memoList.push(["UnderKG", "http://underkg.co.kr/", "", "IT, Mobile, 모바일 소식"]);
+	memoList.push(["코딩 도장", "https://dojang.io/", "", "it, study, python, cpp"]);
 }
 
