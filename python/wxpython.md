@@ -1,3 +1,6 @@
+#### [Home](../index.md)  
+---
+
 # wxPython
 
 ```
@@ -35,3 +38,6 @@ self.filename.SetValue("")
 self.filename.SetBackgroundColour(wx.Colour(255, 255, 204))
 self.filename.SetFont(font)
 ```
+
+---
+#### [Home](../index.md)  
