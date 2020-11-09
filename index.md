@@ -46,6 +46,7 @@
 [json](python/json.md)  
 [List example](python/list.md)  
 [Lotto](python/lotto.md)  
+[LFSR](python/lfsr.md)  
 [Numpy](python/numpy.md)  
 [Pandas](python/pandas.md)  
 [Shuffle](python/shuffle.md)     
