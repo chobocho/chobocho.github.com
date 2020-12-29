@@ -14,5 +14,6 @@
 	memoList.push(["Repl", "https://repl.it/~", "", "code, study, python, cpp, codig"]);
 	memoList.push(["Naver game", "https://game.naver.com", "", "game,naver"]);
 	memoList.push(["Trend Talk", "https://news.trendtalk.kr", "", "china, trend, it, mobile, wechat"]);
+	memoList.push(["부산대 학생 커뮤니티", "https://mypnu.net/", "", "communite,게시판,pnu,busan"]);
 }
 
