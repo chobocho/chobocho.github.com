@@ -18,5 +18,7 @@
 	memoList.push(["맥심코리아", "https://www.maximkorea.net/", "", "maxim, 19, 잡지"]);
 	memoList.push(["월간 HR Insight", "https://www.hrinsight.co.kr/", "", "HR, 인사, 잡지"]);
 	memoList.push(["https://editor.p5js.org/", "p5js", "", "javascript,자바스크립트,온라인,에디터"]);
+	memoList.push(["Leetcode", "https://leetcode.com/", "", "code,coding,test,certi"]);
+	memoList.push(["프로그래머스", "https://programmers.co.kr/", "", "코딩, 써티, study"]);
 }
 
