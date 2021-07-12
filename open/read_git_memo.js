@@ -1,8 +1,6 @@
 ﻿function init_git_memo_list() {
-    memoList.push(["한컴스페이스", "https://space.malangmalang.com/", "", "한글,말랑말랑,오피스,클라우드,cloud"]);
     memoList.push(["Tetris", "http://www.chobocho.com/game/tetris/tetris.html", "", "테트리스, block, game"]);
-    memoList.push(["신한생명 모바일 운세", "http://m.shinhanlife.co.kr/svc/haezon.jsp", "", "사주"]);
-    memoList.push(["신한생명 운세", "http://www.shinhanlife.co.kr/bigLife.do", "", "사주"]);
+    memoList.push(["신한생명 운세", "http://shinhan.haezone.com/", "", "사주"]);
     memoList.push(["디벨로퍼웍스 코리아 dW Korea - IBM Developer", "https://developer.ibm.com/kr/", "", "ibm, 개발"]);
     memoList.push(["모던 JavaScript 튜토리얼", "https://ko.javascript.info/", "", "개발, javascript, 자바스크립트"]);
     memoList.push(["[유머] 제갈량", "https://m.clien.net/service/board/park/15129599?type=recommend", "", "유머, 제갈량, 클리앙"]);
@@ -26,6 +24,6 @@
     memoList.push(["오늘의 유머 베스트 게시판", "http://m.todayhumor.co.kr/list.php?table=bestofbest"]);
     memoList.push(["오늘의 유머", "http://m.todayhumor.co.kr/"]);
     memoList.push(["82cook", "https://www.82cook.com/entiz/enti.php?bn=15"]);
-  
+    memoList.push(["일잘하는 법", "https://www.google.com/search?q=site%3Aclien.net+%EC%9D%BC%EC%9E%98%ED%95%98&rlz=1C1FKPE_koKR929KR929&sxsrf=ALeKk01qPcR4wDIo7QdUos329F6iiagZ0g%3A1626104295103&ei=52HsYNvbBZCE-Abg0pDoAw&oq=site%3Aclien.net+%EC%9D%BC%EC%9E%98%ED%95%98&gs_lcp=Cgdnd3Mtd2l6EANKBAhBGAFQ4A9YnBlg0xtoAXAAeACAAWaIAYwDkgEDMi4ymAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=gws-wiz&ved=0ahUKEwib64HH7t3xAhUQAt4KHWApBD0Q4dUDCA4&uact=5"]);  
 }
 
