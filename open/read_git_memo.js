@@ -1,4 +1,5 @@
 ﻿function init_git_memo_list() {
+    memoList.push(["클하대학교", "https://clhauniv.org/", "", "clubhouse,클럽하우스,대학교"]);
     memoList.push(["Tetris", "http://www.chobocho.com/game/tetris/tetris.html", "", "테트리스, block, game"]);
     memoList.push(["신한생명 운세", "http://shinhan.haezone.com/", "", "사주"]);
     memoList.push(["디벨로퍼웍스 코리아 dW Korea - IBM Developer", "https://developer.ibm.com/kr/", "", "ibm, 개발"]);
