@@ -1,7 +1,10 @@
 ﻿function init_git_memo_list() {
     memoList.push(["클하대학교", "https://clhauniv.org/", "", "clubhouse,클럽하우스,대학교"]);
+    memoList.push(["구미 버스 정보", "http://m.bis.gumi.go.kr/main/main.do", "", "구미,Gumi,버스,노선"]);
+    memoList.push(["버스 배차 시간표", "http://m.bis.gumi.go.kr/city_bus/city_time_service.do", "", "구미, gumi, 시간"]);
     memoList.push(["Tetris", "http://www.chobocho.com/game/tetris/tetris.html", "", "테트리스, block, game"]);
-    memoList.push(["신한생명 운세", "http://shinhan.haezone.com/", "", "사주"]);
+    memoList.push(["신한생명 운세", "https://www.shinhanlife.co.kr/hp/cdhg0130.do", "", "사주"]);
+    memoList.push(["신한생명 운세 - 오늘", "https://www.shinhanlife.co.kr/hp/cdhg0140.do", "", "오늘,사주"]);
     memoList.push(["디벨로퍼웍스 코리아 dW Korea - IBM Developer", "https://developer.ibm.com/kr/", "", "ibm, 개발"]);
     memoList.push(["모던 JavaScript 튜토리얼", "https://ko.javascript.info/", "", "개발, javascript, 자바스크립트"]);
     memoList.push(["[유머] 제갈량", "https://m.clien.net/service/board/park/15129599?type=recommend", "", "유머, 제갈량, 클리앙"]);
@@ -26,5 +29,6 @@
     memoList.push(["오늘의 유머", "http://m.todayhumor.co.kr/"]);
     memoList.push(["82cook", "https://www.82cook.com/entiz/enti.php?bn=15"]);
     memoList.push(["일잘하는 법", "https://www.google.com/search?q=site%3Aclien.net+%EC%9D%BC%EC%9E%98%ED%95%98&rlz=1C1FKPE_koKR929KR929&sxsrf=ALeKk01qPcR4wDIo7QdUos329F6iiagZ0g%3A1626104295103&ei=52HsYNvbBZCE-Abg0pDoAw&oq=site%3Aclien.net+%EC%9D%BC%EC%9E%98%ED%95%98&gs_lcp=Cgdnd3Mtd2l6EANKBAhBGAFQ4A9YnBlg0xtoAXAAeACAAWaIAYwDkgEDMi4ymAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=gws-wiz&ved=0ahUKEwib64HH7t3xAhUQAt4KHWApBD0Q4dUDCA4&uact=5"]);  
+    memoList.push(["구미 187번 배차 시간표", "http://m.bis.gumi.go.kr/city_bus/time_table.do?route_id=18730&brtId=187&remark=%EA%B5%AC%EB%AF%B8%EC%97%AD_%EC%9D%B8%EB%8F%99%EC%A0%95%EB%A5%98%EC%9E%A5_%EA%B5%AC%ED%8F%89%ED%9C%B4%EB%A8%BC%EC%8B%9C%EC%95%84_%EA%B5%AC%EB%AF%B8%EC%97%AD", "", "구미, gumi, 시간"]);
 }
 
