@@ -1,10 +1,10 @@
 ﻿function init_git_memo_list() {
+    memoList.push(["구미시립중앙도서관", "https://lib.gumi.go.kr/", "", "도서관, 인동, 독서"]);
     memoList.push(["클하대학교", "https://clhauniv.org/", "", "clubhouse,클럽하우스,대학교"]);
     memoList.push(["구미 버스 정보", "http://m.bis.gumi.go.kr/main/main.do", "", "구미,Gumi,버스,노선"]);
     memoList.push(["버스 배차 시간표", "http://m.bis.gumi.go.kr/city_bus/city_time_service.do", "", "구미, gumi, 시간"]);
     memoList.push(["Tetris", "http://www.chobocho.com/game/tetris/tetris.html", "", "테트리스, block, game"]);
     memoList.push(["신한생명 운세", "https://www.shinhanlife.co.kr/hp/cdhg0130.do", "", "사주"]);
-    memoList.push(["신한생명 운세 - 오늘", "https://www.shinhanlife.co.kr/hp/cdhg0140.do", "", "오늘,사주"]);
     memoList.push(["디벨로퍼웍스 코리아 dW Korea - IBM Developer", "https://developer.ibm.com/kr/", "", "ibm, 개발"]);
     memoList.push(["모던 JavaScript 튜토리얼", "https://ko.javascript.info/", "", "개발, javascript, 자바스크립트"]);
     memoList.push(["[유머] 제갈량", "https://m.clien.net/service/board/park/15129599?type=recommend", "", "유머, 제갈량, 클리앙"]);
