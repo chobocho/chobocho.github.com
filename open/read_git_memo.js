@@ -1,4 +1,6 @@
 ﻿function init_git_memo_list() {
+    memoList.push(["닌텐도 북미 eshop", "https://www.nintendo.com/games/switch", "", "e shop, usa, nintendo, america"]);
+    memoList.push(["닌텐도 eshop", "https://store.nintendo.co.kr/", "", "e shop, 한국, nintendo, korea"]);
     memoList.push(["구미시립중앙도서관", "https://lib.gumi.go.kr/", "", "도서관, 인동, 독서"]);
     memoList.push(["클하대학교", "https://clhauniv.org/", "", "clubhouse,클럽하우스,대학교"]);
     memoList.push(["구미 버스 정보", "http://m.bis.gumi.go.kr/main/main.do", "", "구미,Gumi,버스,노선"]);
