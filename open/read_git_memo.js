@@ -1,4 +1,7 @@
 ﻿function init_git_memo_list() {
+    memoList.push(["Google document", "https://docs.google.com/document/u/0/", "", "document,google,word,워드"]);
+    memoList.push(["Google Sheet", "https://docs.google.com/spreadsheets/u/0/", "", "sheet,google,시트"]);
+    memoList.push(["Gdrive", "https://drive.google.com/drive/u/0/my-drive", "", "구글 드라이브,drive,hard,google,cloud"]);
     memoList.push(["닌텐도 북미 eshop", "https://www.nintendo.com/games/switch", "", "e shop, usa, nintendo, america"]);
     memoList.push(["닌텐도 eshop", "https://store.nintendo.co.kr/", "", "e shop, 한국, nintendo, korea"]);
     memoList.push(["구미시립중앙도서관", "https://lib.gumi.go.kr/", "", "도서관, 인동, 독서"]);
@@ -21,7 +24,7 @@
     memoList.push(["부산대 학생 커뮤니티", "https://mypnu.net/", "", "communite,게시판,pnu,busan"]);
     memoList.push(["맥심코리아", "https://www.maximkorea.net/", "", "maxim, 19, 잡지"]);
     memoList.push(["월간 HR Insight", "https://www.hrinsight.co.kr/", "", "HR, 인사, 잡지"]);
-    memoList.push(["https://editor.p5js.org/", "p5js", "", "javascript,자바스크립트,온라인,에디터"]);
+    memoList.push(["p5js", "https://editor.p5js.org/", "", "javascript,자바스크립트,온라인,에디터"]);
     memoList.push(["Leetcode", "https://leetcode.com/", "", "code,coding,test,certi"]);
     memoList.push(["프로그래머스", "https://programmers.co.kr/", "", "코딩, 써티, study"]);
     memoList.push(["Okky", "https://okky.kr/articles/community"]);
