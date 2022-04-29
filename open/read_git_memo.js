@@ -1,5 +1,6 @@
 ﻿function init_git_memo_list() {
-    memoList.push(["Doom world", "https://www.doomworld.com/", "", "game,doom"]);
+    memoList.push(["2cpu", "https://www.2cpu.co.kr/", "", "it,게시판"]);
+    memoList.push(["Doom world", "https://www.doomworld.com/", "", "game,doom,it,둠"]);
     memoList.push(["Doom wiki", "https://doomwiki.org/wiki/Entryway", "", "doom,둠,wiki"]);
     memoList.push(["파비앙 사이트", "https://fabiensanglard.net/", "", "doom,game engine,game"]);
     memoList.push(["Google document", "https://docs.google.com/document/u/0/", "", "document,google,word,워드"]);
