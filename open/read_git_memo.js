@@ -1,4 +1,5 @@
 ﻿function init_git_memo_list() {
+    memoList.push(["Javascript Info", "https://javascript.info/", "", "자바 스크립트"]);
     memoList.push(["2cpu", "https://www.2cpu.co.kr/", "", "it,게시판"]);
     memoList.push(["Doom world", "https://www.doomworld.com/", "", "game,doom,it,둠"]);
     memoList.push(["Doom wiki", "https://doomwiki.org/wiki/Entryway", "", "doom,둠,wiki"]);
