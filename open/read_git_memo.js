@@ -1,4 +1,7 @@
 ﻿function init_git_memo_list() {
+    memoList.push(["파이썬 코딩 도장", "https://dojang.io/course/view.php?id=7", "", "Python, coding"]);
+    memoList.push(["미래를 만든 Geeks", "https://www.folklore.org/", "apple 매킨토시 역사", "Macintosh"]);
+    memoList.push(["Refactoring Guru", "https://refactoring.guru/", "리팩토링, 디자인 패턴", "design pattern"]);
     memoList.push(["Javascript Info", "https://javascript.info/", "", "자바 스크립트"]);
     memoList.push(["2cpu", "https://www.2cpu.co.kr/", "", "it,게시판"]);
     memoList.push(["Doom world", "https://www.doomworld.com/", "", "game,doom,it,둠"]);
@@ -38,7 +41,7 @@
     memoList.push(["오늘의 유머 베스트 게시판", "http://m.todayhumor.co.kr/list.php?table=bestofbest"]);
     memoList.push(["오늘의 유머", "http://m.todayhumor.co.kr/"]);
     memoList.push(["82cook", "https://www.82cook.com/entiz/enti.php?bn=15"]);
-    memoList.push(["일잘하는 법", "https://www.google.com/search?q=site%3Aclien.net+%EC%9D%BC%EC%9E%98%ED%95%98&rlz=1C1FKPE_koKR929KR929&sxsrf=ALeKk01qPcR4wDIo7QdUos329F6iiagZ0g%3A1626104295103&ei=52HsYNvbBZCE-Abg0pDoAw&oq=site%3Aclien.net+%EC%9D%BC%EC%9E%98%ED%95%98&gs_lcp=Cgdnd3Mtd2l6EANKBAhBGAFQ4A9YnBlg0xtoAXAAeACAAWaIAYwDkgEDMi4ymAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=gws-wiz&ved=0ahUKEwib64HH7t3xAhUQAt4KHWApBD0Q4dUDCA4&uact=5"]);  
+    memoList.push(["일 잘하는 법", "https://www.google.com/search?q=site%3Aclien.net+%EC%9D%BC%EC%9E%98%ED%95%98&rlz=1C1FKPE_koKR929KR929&sxsrf=ALeKk01qPcR4wDIo7QdUos329F6iiagZ0g%3A1626104295103&ei=52HsYNvbBZCE-Abg0pDoAw&oq=site%3Aclien.net+%EC%9D%BC%EC%9E%98%ED%95%98&gs_lcp=Cgdnd3Mtd2l6EANKBAhBGAFQ4A9YnBlg0xtoAXAAeACAAWaIAYwDkgEDMi4ymAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=gws-wiz&ved=0ahUKEwib64HH7t3xAhUQAt4KHWApBD0Q4dUDCA4&uact=5"]);
     memoList.push(["구미 187번 배차 시간표", "http://m.bis.gumi.go.kr/city_bus/time_table.do?route_id=18730&brtId=187&remark=%EA%B5%AC%EB%AF%B8%EC%97%AD_%EC%9D%B8%EB%8F%99%EC%A0%95%EB%A5%98%EC%9E%A5_%EA%B5%AC%ED%8F%89%ED%9C%B4%EB%A8%BC%EC%8B%9C%EC%95%84_%EA%B5%AC%EB%AF%B8%EC%97%AD", "", "구미, gumi, 시간"]);
 }
 
