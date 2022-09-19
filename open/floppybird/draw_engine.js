@@ -12,51 +12,52 @@ class DrawEngine {
   }
 
   _LoadImage() {
-    let root = "./img";
+    //let root = "./img";
+    let root = base64Header;
 
     this.background = [];
-    this.background[0] = LoadImage(root + "/background01.jpg");
-    this.background[1] = LoadImage(root + "/background02.jpg");
-    this.background[2] = LoadImage(root + "/background03.png");
-    this.background[3] = LoadImage(root + "/background04.png");
-    this.background[4] = LoadImage(root + "/background05.png");
-    this.background[5] = LoadImage(root + "/background06.png");
+    this.background[0] = LoadImage(root + background01_img);
+    this.background[1] = LoadImage(root + background02_img);
+    this.background[2] = LoadImage(root + background03_img);
+    this.background[3] = LoadImage(root + background04_img);
+    this.background[4] = LoadImage(root + background05_img);
+    this.background[5] = LoadImage(root + background06_img);
 
     this.buttonImage = {};
-    this.buttonImage['score'] = LoadImage(root + "/score.png");
-    this.buttonImage['0'] = LoadImage(root + "/sn00.png");
-    this.buttonImage['1'] = LoadImage(root + "/sn01.png");
-    this.buttonImage['2'] = LoadImage(root + "/sn02.png");
-    this.buttonImage['3'] = LoadImage(root + "/sn03.png");
-    this.buttonImage['4'] = LoadImage(root + "/sn04.png");
-    this.buttonImage['5'] = LoadImage(root + "/sn05.png");
-    this.buttonImage['6'] = LoadImage(root + "/sn06.png");
-    this.buttonImage['7'] = LoadImage(root + "/sn07.png");
-    this.buttonImage['8'] = LoadImage(root + "/sn08.png");
-    this.buttonImage['9'] = LoadImage(root + "/sn09.png");
-    this.buttonImage['tile_top'] = LoadImage(root + "/tile01.png");
-    this.buttonImage['tile_down'] = LoadImage(root + "/tile02.png");
-    this.buttonImage['tile_body'] = LoadImage(root + "/tile03.png");
-    this.buttonImage['bar'] = LoadImage(root + "/bar.png");
-    this.buttonImage['coin'] = LoadImage(root + "/coin.png");
-    this.buttonImage['shield'] = LoadImage(root + "/shield.png");
-    this.buttonImage['red_bottle'] = LoadImage(root + "/redbottle.png");
-    this.buttonImage['pink_bottle'] = LoadImage(root + "/pinkbottle.png");
-    this.buttonImage['start'] = LoadImage(root + "/start.png");
-    this.buttonImage['resume'] = LoadImage(root + "/resume.png");
-    this.buttonImage['pause'] = LoadImage(root + "/pause.png");
+    this.buttonImage['score'] = LoadImage(root + score_img);
+    this.buttonImage['0'] = LoadImage(root + sn00_img);
+    this.buttonImage['1'] = LoadImage(root + sn01_img);
+    this.buttonImage['2'] = LoadImage(root + sn02_img);
+    this.buttonImage['3'] = LoadImage(root + sn03_img);
+    this.buttonImage['4'] = LoadImage(root + sn04_img);
+    this.buttonImage['5'] = LoadImage(root + sn05_img);
+    this.buttonImage['6'] = LoadImage(root + sn06_img);
+    this.buttonImage['7'] = LoadImage(root + sn07_img);
+    this.buttonImage['8'] = LoadImage(root + sn08_img);
+    this.buttonImage['9'] = LoadImage(root + sn09_img);
+    this.buttonImage['tile_top'] = LoadImage(root + tile01_img);
+    this.buttonImage['tile_down'] = LoadImage(root + tile02_img);
+    this.buttonImage['tile_body'] = LoadImage(root + tile03_img);
+    this.buttonImage['bar'] = LoadImage(root + bar_img);
+    this.buttonImage['coin'] = LoadImage(root + coin_img);
+    this.buttonImage['shield'] = LoadImage(root + shield_img);
+    this.buttonImage['red_bottle'] = LoadImage(root + red_bottle_img);
+    this.buttonImage['pink_bottle'] = LoadImage(root + pink_bottle_img);
+    this.buttonImage['start'] = LoadImage(root + start_img);
+    this.buttonImage['resume'] = LoadImage(root + resume_img);
+    this.buttonImage['pause'] = LoadImage(root + pause_img);
 
     this.birdImage = [];
-    this.birdImage[0] = LoadImage(root + "/bird01.png");
-    this.birdImage[1] = LoadImage(root + "/bird02.png");
-    this.birdImage[2] = LoadImage(root + "/bird03.png");
-    this.birdImage[3] = LoadImage(root + "/bird04.png");
+    this.birdImage[0] = LoadImage(root + bird01_img);
+    this.birdImage[1] = LoadImage(root + bird02_img);
+    this.birdImage[2] = LoadImage(root + bird03_img);
+    this.birdImage[3] = LoadImage(root + bird04_img);
 
     this.circleImage = [];
-    this.circleImage[0] = LoadImage(root + "/circle1.png");
-    this.circleImage[1] = LoadImage(root + "/circle2.png");
-    this.circleImage[2] = LoadImage(root + "/circle3.png");
-    this.circleImage[3] = LoadImage(root + "/circle4.png");
+    this.circleImage[0] = LoadImage(root + circle1_img);
+    this.circleImage[1] = LoadImage(root + circle2_img);
+    this.circleImage[2] = LoadImage(root + circle3_img);
+    this.circleImage[3] = LoadImage(root + circle4_img);
 
     printf("[DrawEngine]", "_LoadImage");
   }
