@@ -1,4 +1,5 @@
 ﻿function init_git_memo_list() {
+    memoList.push(["WikiHow", "https://ko.wikihow.com/%EB%8C%80%EB%AC%B8", "", "게시판,it"]);
     memoList.push(["개드립", "https://www.dogdrip.net/", "", "유머,정보,게시판"]);
     memoList.push(["파이썬 코딩 도장", "https://dojang.io/course/view.php?id=7", "", "Python, coding"]);
     memoList.push(["미래를 만든 Geeks", "https://www.folklore.org/", "apple 매킨토시 역사", "Macintosh"]);
