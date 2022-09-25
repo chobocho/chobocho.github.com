@@ -1,7 +1,8 @@
 function OnDraw() {
   gameEngine.increaseTick();
   drawEngine.OnDraw();
-  updateResolution();
+  //updateResolution();
+  setTimeout(OnDraw, 20);
 }
 
 function processKeyEvent(code) {
@@ -105,6 +106,8 @@ function InitValue() {
   canvas.addEventListener("touchend", touchListener, false);
   canvas.addEventListener("touchcancel", touchListener, false);
   canvas.addEventListener("touchmove", touchListener, false);
+
+  window.addEventListener('resize', resizeCanvas, false);
 }
 
 function updateResolution() {
@@ -119,21 +122,44 @@ function updateResolution() {
   document.getElementById("message").innerHTML = log_msg;
 }
 
+function resizeCanvas() {
+  canvas = document.getElementById("canvas");
+
+  let height = window.innerHeight;
+  let width = window.innerWidth;
+
+  if (height < 200 || width < 300) {
+    printf("[main]", "Error: width == 0");
+    width = 200;
+    height = 300;
+  }
+
+  canvas.width = width;
+  canvas.height = height;
+
+  let log_msg = "Width: " + canvas.width + " Height: " + canvas.height;
+  printf("[main] resizeCanvas: ", log_msg);
+
+  DecisionBlockSize();
+}
 
 function InitCanvas() {
-  canvas = document.getElementById("canvas");
-  let log_msg = "Width: " + canvas.width + " Height: " + canvas.height;
-  //printf("[main]", log_msg);
-  // canvas.width = 800;
-  // canvas.height = 600;
+  resizeCanvas();
   cvs = canvas.getContext("2d");
-  // log_msg = "Width: " + canvas.width + " Height: " + canvas.height;
-  // printf("[main]", log_msg);
 
   bufCanvas = document.createElement("canvas");
-  bufCanvas.width = canvas.width;
-  bufCanvas.height = canvas.height;
+  bufCanvas.width = gScreenX;
+  bufCanvas.height = gScreenY;
   bufCtx = bufCanvas.getContext("2d");
+}
+
+function DecisionBlockSize() {
+  let screenX = canvas.width / 40;
+  let screenY = canvas.height / 60;
+  gBlockSize = screenX < screenY ? screenX : screenY;
+  gStartX = (canvas.width - gBlockSize * 40) / 2;
+  gScale = gBlockSize / 10;
+  printf("[main] DecisionBlockSize", "gStartX:" + gStartX + ", scale: " + gScale);
 }
 
 const isMobileOS = () => {
@@ -150,8 +176,8 @@ const isMobileOS = () => {
 const onLoadPage = function onLoadPageFnc() {
   InitCanvas();
   InitValue();
-  setInterval(OnDraw, 20);
-  //setTimeout(function () { OnDraw() }, 300);
+  //setInterval(OnDraw, 20);
+  setTimeout(OnDraw, 20);
   isMobile = isMobileOS();
 }
 

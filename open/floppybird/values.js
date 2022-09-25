@@ -5,6 +5,12 @@ const J_KEY = 74;
 const P_KEY = 80;
 const S_KEY = 83;
 
+let gStartX = 0;
+let gBlockSize = 60;
+let gScale = 1.0;
+let gScreenX = 400;
+let gScreenY = 600;
+
 let cvs;
 let canvas;
 
