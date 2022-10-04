@@ -217,19 +217,20 @@ class DrawEngine {
     }
 
     getEventCode(x, y) {
-        printf("[DrawEngine] getEventCode() ", this.game[0].state() + " (" + x + ", " + y + ")");
+        printf("[DrawEngine] getEventCode() ", this.game[0].state() + " (" + x + ", " + y + ") gScale: " + gScale);
         if (this.game[0].isIdleState()) {
-            let bx1 = gStartX + 100 * gScale;
-            let bx2 = gStartX + (100 + 300) * gScale;
+            let bx1 = gStartX + ((800-300)/2) * gScale;
+            let bx2 = gStartX + ((800-300)/2 + 300) * gScale;
             let by1 = 100 * gScale;
             let by2 = (100 + 163) * gScale;
 
+            printf("[DrawEngine] getEventCode(): ", this.game[0].state() + " (" + bx1 + ", " + by1 + ")");
             if (x > bx1 && x < bx2 && y > by1 && y < by2) {
                 return S_KEY;
             }
         } else if (this.game[0].isPauseState()) {
-            let bx1 = gStartX + 100 * gScale;
-            let bx2 = gStartX + 300 * gScale;
+            let bx1 = gStartX + ((800-200)/2) * gScale;
+            let bx2 = gStartX + ((800-200)/2 + 200) * gScale;
             let by1 = 100 * gScale;
             let by2 = 200 * gScale;
 
@@ -237,10 +238,11 @@ class DrawEngine {
                 return S_KEY;
             }
         } else if (this.game[0].isGameOverState()) {
-            let bx1 = gStartX + 100 * gScale;
-            let bx2 = gStartX + (100 + 300) * gScale;
+            let bx1 = gStartX + ((800-300)/2) * gScale;
+            let bx2 = gStartX + ((800-300)/2 + 300) * gScale;
             let by1 = 100 * gScale;
             let by2 = (100 + 163) * gScale;
+
             if (x > bx1 && x < bx2 && y > by1 && y < by2) {
                 return S_KEY;
             }
