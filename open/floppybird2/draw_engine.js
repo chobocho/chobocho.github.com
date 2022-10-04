@@ -219,10 +219,10 @@ class DrawEngine {
     getEventCode(x, y) {
         printf("[DrawEngine] getEventCode() ", this.game[0].state() + " (" + x + ", " + y + ")");
         if (this.game[0].isIdleState()) {
-            let bx1 = gStartX + 95 * gScale;
-            let bx2 = gStartX + (95 + 210) * gScale;
+            let bx1 = gStartX + 100 * gScale;
+            let bx2 = gStartX + (100 + 300) * gScale;
             let by1 = 100 * gScale;
-            let by2 = (100 + 163 * 0.7) * gScale;
+            let by2 = (100 + 163) * gScale;
 
             if (x > bx1 && x < bx2 && y > by1 && y < by2) {
                 return S_KEY;
@@ -237,10 +237,10 @@ class DrawEngine {
                 return S_KEY;
             }
         } else if (this.game[0].isGameOverState()) {
-            let bx1 = gStartX + 95 * gScale;
-            let bx2 = gStartX + (95 + 210) * gScale;
+            let bx1 = gStartX + 100 * gScale;
+            let bx2 = gStartX + (100 + 300) * gScale;
             let by1 = 100 * gScale;
-            let by2 = (100 + 163 * 0.7) * gScale;
+            let by2 = (100 + 163) * gScale;
             if (x > bx1 && x < bx2 && y > by1 && y < by2) {
                 return S_KEY;
             }

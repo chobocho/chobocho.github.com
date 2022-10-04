@@ -225,7 +225,6 @@ class FloppyBird {
      return !(this._y + this.core_rect[1] > y2-10)
   }
 
-
   isAlive() {
     if (this._state !== this.PLAY_STATE) {
       return false;
