@@ -234,7 +234,7 @@ class FloppyBird {
       return false;
     }
 
-    printf("[FloppyBird] isAlive()", this._x + ", " + this._y + this.core_rect[3]);
+    // printf("[FloppyBird] isAlive()", this._x + ", " + this._y + this.core_rect[3]);
     if (this._y + this.core_rect[3] > this._bottom) {
       this._state = this.GAME_OVER_STATE;
       return false;
@@ -260,6 +260,12 @@ class FloppyBird {
 
   startShield() {
     this._shield.start();
+  }
+
+  notify(event) {
+    if (event === "SHIELD") {
+      this.startShield();
+    }
   }
 
   checkGetItem() {

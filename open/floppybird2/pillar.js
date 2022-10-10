@@ -11,8 +11,8 @@ class Pillar {
         for (let i = 0; i < 4; ++i) {
             let down = getRandomInt(0, 5);
             let top = getRandomInt(0, 5 - down);
-            this._pillars.push([gScreenX + i * 200, top, down])
-            this._items.make_new_item(gScreenX + i * 200, top, down);
+            this._pillars.push([gBufferX + i * 200, top, down])
+            this._items.make_new_item(gBufferX + i * 200, top, down);
         }
     }
 

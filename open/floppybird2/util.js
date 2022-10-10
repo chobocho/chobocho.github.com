@@ -25,3 +25,17 @@ class LocalDB {
     localStorage.setItem(this.DB_NAME, score);
   }
 }
+
+class Observer {
+  constructor() {
+    this.observer = [];
+  }
+
+  register(observer) {
+    this.observer.push(observer);
+  }
+
+  notify(event) {
+    this.observer.forEach((e) => e.notify(event));
+  }
+}

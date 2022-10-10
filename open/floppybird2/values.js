@@ -11,6 +11,7 @@ let gBlockSize = 60;
 let gScale = 1.0;
 let gScreenX = 800;
 let gScreenY = 600;
+let gBufferX = 800;
 
 let cvs;
 let canvas;
@@ -25,3 +26,14 @@ let scoreDB;
 
 let offset = 0;
 let isMobile = false;
+
+let initMode;
+let singleMode;
+let togetherMode;
+let competeMode;
+let gameMode;
+
+let initdrawMode;
+let singleDrawMode;
+let togetherDrawMode;
+let competeDrawMode;

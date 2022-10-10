@@ -1,8 +1,8 @@
 class Score {
-  constructor(highScore=0) {
+  constructor(savedHighScore=0) {
     this._score = 0;
-    this._highScore = highScore;
-    this._prev_high_score = highScore;
+    this._highScore = savedHighScore;
+    this._prev_high_score = savedHighScore;
   }
 
   init() {

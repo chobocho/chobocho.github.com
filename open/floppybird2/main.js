@@ -1,7 +1,7 @@
 function OnDraw() {
   gameEngine.increaseTick();
   drawEngine.OnDraw();
-  updateResolution();
+  // updateResolution();
   setTimeout(OnDraw, 20);
 }
 
@@ -16,7 +16,11 @@ function processKeyEvent(code) {
     case J_KEY:
     case ARROW_UP_KEY:
       printf("[Main] processKeyEvent: ", "2 UP");
-      gameEngine.moveUp(1);
+      if (gameMode.mode() === "SINGLE_MODE") {
+        gameEngine.moveUp(0);
+      } else {
+        gameEngine.moveUp(1);
+      }
       break;
     case P_KEY:
       printf("[Main] processKeyEvent: ", "Pause");
@@ -92,22 +96,26 @@ function touchListener(event) {
   }
 }
 
-function InitValue() {
-  scoreDB = new LocalDB();
-  let score = new Score(scoreDB.getScore());
-  let energy = new Energy();
-  let item = new Item();
-  let pillar = new Pillar(item);
-  floppybird = [];
-  floppybird.push(new FloppyBird(100, 200, score, energy, item, pillar));
-  floppybird.push(new FloppyBird(500, 200, score, energy, item, pillar));
-  energy.setGame(floppybird);
-  item.setGame(floppybird);
+function setSingleMode() {
+  gameMode = singleMode;
+  gBufferX = gameMode.gBufferX;
+  gameEngine = new GameEngine(singleMode, scoreDB);
+  drawEngine.setDrawMode(singleMode, singleDrawMode);
+}
 
-  floppybird[0].init();
-  floppybird[1].init();
-  gameEngine = new GameEngine(floppybird, scoreDB);
-  drawEngine = new DrawEngine(floppybird);
+function setTogetherMode() {
+  gameMode = togetherMode;
+  gBufferX = gameMode.gBufferX;
+  gameEngine = new GameEngine(togetherMode, scoreDB);
+  drawEngine.setDrawMode(togetherMode, togetherDrawMode);
+}
+
+function InitValue() {
+  gameMode = initMode;
+
+  gBufferX = gameMode.gBufferX;
+  gameEngine = new GameEngine(gameMode, scoreDB);
+  drawEngine = new DrawEngine(gameMode, initdrawMode);
 
   window.onkeydown = KeyPressEvent;
 
@@ -146,13 +154,20 @@ function resizeCanvas() {
     printf("[main]", "Error: width == 0");
     width = 400;
     height = 300;
+  } else {
+    let screenX = height / 80;
+    let screenY = width / 60;
+    let blockSize = screenX < screenY ? screenX : screenY;
+    blockSize = Math.round(blockSize);
+    width = blockSize * 80;
+    height = blockSize * 60;
   }
 
   canvas.width = width;
   canvas.height = height;
 
-  let log_msg = "Width: " + canvas.width + " Height: " + canvas.height;
-  printf("[main] resizeCanvas: ", log_msg);
+  console.log("[Main] windows: ", width, "x", height);
+  console.log("[Main] canvas", canvas.width, "x", canvas.height);
 
   DecisionBlockSize();
 }
@@ -174,6 +189,11 @@ function DecisionBlockSize() {
   gStartX = (canvas.width - gBlockSize * 80) / 2;
   gScale = gBlockSize / 10;
   printf("[main] DecisionBlockSize", "gStartX:" + gStartX + ", scale: " + gScale);
+
+  initMode.decisionBlockSize(canvas);
+  singleMode.decisionBlockSize(canvas);
+  togetherMode.decisionBlockSize(canvas);
+  //competeMode.decisionBlockSize(canvas);
 }
 
 const isMobileOS = () => {
@@ -188,6 +208,17 @@ const isMobileOS = () => {
 }
 
 const onLoadPage = function onLoadPageFnc() {
+  scoreDB = new LocalDB();
+  let score = scoreDB.getScore();
+
+  initMode = new InitMode(score);
+  singleMode = new SingleMode(score);
+  togetherMode = new TogetherMode(score);
+  //competeMode = new CompeteMode(score);
+
+  initdrawMode = new InitDrawMode();
+  togetherDrawMode = new TogetherDrawMode();
+  singleDrawMode = new SingDrawMode();
   InitCanvas();
   InitValue();
   //setInterval(OnDraw, 20);
