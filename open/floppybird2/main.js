@@ -106,13 +106,20 @@ function setSingleMode() {
 function setTogetherMode() {
   gameMode = togetherMode;
   gBufferX = gameMode.gBufferX;
+
+  let width = togetherMode.gBlockSize * 80;
+  let height = togetherMode.gBlockSize * 60;
+
+  canvas.width = width;
+  canvas.height = height;
+
+  console.log("[Main] canvas", canvas.width, "x", canvas.height);
+
   gameEngine = new GameEngine(togetherMode, scoreDB);
   drawEngine.setDrawMode(togetherMode, togetherDrawMode);
 }
 
 function InitValue() {
-  gameMode = initMode;
-
   gBufferX = gameMode.gBufferX;
   gameEngine = new GameEngine(gameMode, scoreDB);
   drawEngine = new DrawEngine(gameMode, initdrawMode);
@@ -149,19 +156,31 @@ function resizeCanvas() {
 
   let height = window.innerHeight;
   let width = window.innerWidth;
-
-  if (height < 400 || width < 300) {
-    printf("[main]", "Error: width == 0");
-    width = 400;
-    height = 300;
+  printf("[MAIN]", "height: " + height);
+  let blockCount = 40;
+  if (gameMode.mode() === "TOGETHER_MODE") {
+    printf("[MAIN]", "together mode");
+    blockCount = 80;
+    if (height < 400 || width < 300) {
+      printf("[main]", "Error: width == 0");
+      width = 400;
+      height = 300;
+    }
   } else {
-    let screenX = height / 80;
-    let screenY = width / 60;
-    let blockSize = screenX < screenY ? screenX : screenY;
-    blockSize = Math.round(blockSize);
-    width = blockSize * 80;
-    height = blockSize * 60;
+    printf("[MAIN]", "single mode");
+    if (height < 200 || width < 300) {
+      printf("[main]", "Error: width == 0");
+      width = 200;
+      height = 300;
+    }
   }
+
+  let screenX = width / blockCount;
+  let screenY = height / 60;
+  let blockSize = screenX < screenY ? screenX : screenY;
+  blockSize = Math.round(blockSize);
+  width = blockSize * blockCount;
+  height = blockSize * 60;
 
   canvas.width = width;
   canvas.height = height;
@@ -177,23 +196,39 @@ function InitCanvas() {
   cvs = canvas.getContext("2d");
 
   bufCanvas = document.createElement("canvas");
-  bufCanvas.width = gScreenX;
+  bufCanvas.width = 400;
   bufCanvas.height = gScreenY;
   bufCtx = bufCanvas.getContext("2d");
+
+  bufCanvas800 = document.createElement("canvas");
+  bufCanvas800.width = 800;
+  bufCanvas800.height = gScreenY;
+  bufCtx800 = bufCanvas800.getContext("2d");
+
+  initMode.setBufCanvasCtx(bufCanvas, bufCtx);
+  singleMode.setBufCanvasCtx(bufCanvas, bufCtx);
+  togetherMode.setBufCanvasCtx(bufCanvas800, bufCtx800);
 }
 
 function DecisionBlockSize() {
-  let screenX = canvas.width / 80;
+  let blockSize = 40;
+  if (gameMode.mode() === "TOGETHER_MODE") {
+    blockSize = 80;
+  }
+  let screenX = canvas.width / blockSize;
   let screenY = canvas.height / 60;
   gBlockSize = screenX < screenY ? screenX : screenY;
-  gStartX = (canvas.width - gBlockSize * 80) / 2;
+  gStartX = (canvas.width - gBlockSize * blockSize) / 2;
   gScale = gBlockSize / 10;
   printf("[main] DecisionBlockSize", "gStartX:" + gStartX + ", scale: " + gScale);
 
-  initMode.decisionBlockSize(canvas);
-  singleMode.decisionBlockSize(canvas);
-  togetherMode.decisionBlockSize(canvas);
-  //competeMode.decisionBlockSize(canvas);
+  let height = window.innerHeight;
+  let width = window.innerWidth;
+
+  initMode.decisionBlockSize(width, height);
+  singleMode.decisionBlockSize(width, height);
+  togetherMode.decisionBlockSize(width, height);
+  //competeMode.decisionBlockSize(width, height);
 }
 
 const isMobileOS = () => {
@@ -207,7 +242,7 @@ const isMobileOS = () => {
   return false;
 }
 
-const onLoadPage = function onLoadPageFnc() {
+function InitGameMode() {
   scoreDB = new LocalDB();
   let score = scoreDB.getScore();
 
@@ -219,6 +254,11 @@ const onLoadPage = function onLoadPageFnc() {
   initdrawMode = new InitDrawMode();
   togetherDrawMode = new TogetherDrawMode();
   singleDrawMode = new SingDrawMode();
+  gameMode = initMode;
+}
+
+const onLoadPage = function onLoadPageFnc() {
+  InitGameMode();
   InitCanvas();
   InitValue();
   //setInterval(OnDraw, 20);

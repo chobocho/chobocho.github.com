@@ -7,9 +7,9 @@ class PlayMode {
         this.gScale = 1.0;
         this._blockSize = 40;
 
-        this.gScreenX = 800;
+        this.gScreenX = 400;
         this.gScreenY = 600;
-        this.gBufferX = 800;
+        this.gBufferX = 400;
         this.screenEndX = 0;
 
         this._score = [];
@@ -24,6 +24,11 @@ class PlayMode {
         this.floppybird.push(new FloppyBird(100, 200, this._score[0], this._energy[0], this._item[0], this._pillar[0]));
         this._energy[0].register(this.floppybird[0]);
         this._item[0].setGame(this.floppybird[0]);
+    }
+
+    setBufCanvasCtx(bufCanvas, bufCtx) {
+        this._bufCanvas = bufCanvas;
+        this._bufCtx = bufCtx;
     }
 
     init() {
@@ -86,11 +91,12 @@ class PlayMode {
         return this._score[player].score();
     }
 
-    decisionBlockSize(canvas) {
-        let screenX = canvas.width / this._blockSize;
-        let screenY = canvas.height / 60;
-        this.gBlockSize = screenX < screenY ? screenX : screenY;
-        this.gStartX = (canvas.width - this.gBlockSize * this._blockSize) / 2;
+    decisionBlockSize(windowWidth, windowHeight) {
+        let screenX = windowWidth / this._blockSize;
+        let screenY = windowHeight / 60;
+        let blockSize  = screenX < screenY ? screenX : screenY;
+        this.gBlockSize = Math.round(blockSize);
+        let width = this.gBlockSize * this._blockSize;
         this.gScale = this.gBlockSize / 10;
         console.log("[PlayMode] decisionBlockSize", this._mode, " gStartX:" + this.gStartX + ", scale: " + this.gScale);
     }
@@ -124,6 +130,7 @@ class InitMode extends PlayMode {
     constructor(score = 0) {
         super(score);
         this._mode = "INIT_MODE";
+        this.gScreenX = 400;
         this.gBufferX = 400;
         this.screenEndX = 400;
         this.init();
@@ -134,6 +141,7 @@ class SingleMode extends PlayMode {
     constructor(score = 0) {
         super(score);
         this._mode = "SINGLE_MODE";
+        this.gScreenX = 400;
         this.gBufferX = 400;
         this.screenEndX = 400;
         this.init();
@@ -144,6 +152,8 @@ class TogetherMode extends PlayMode {
     constructor(score = 0) {
         super(score);
         this._blockSize = 80;
+        this.gScreenX = 800;
+        this.gBufferX = 800;
         this._mode = "TOGETHER_MODE";
         this.floppybird.push(new FloppyBird(500, 200, this._score[0], this._energy[0], this._item[0], this._pillar[0]));
         this._energy[0].register(this.floppybird[1]);
@@ -156,6 +166,8 @@ class CompeteMode extends PlayMode {
     constructor(score = 0) {
         super(score);
         this._blockSize = 80;
+        this.gScreenX = 800;
+        this.gBufferX = 800;
         this._mode = "COMPETE_MODE";
         this._score.push(new Score(score));
         this._energy.push(new Energy());

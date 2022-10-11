@@ -598,7 +598,9 @@ class DrawEngine {
     }
 
     OnDraw() {
-        bufCtx.clearRect(0, 0, gScreenX, gScreenY);
+        let bufCtx = this.gameMode._bufCtx;
+
+        bufCtx.clearRect(0, 0, this.gameMode.gScreenX, gScreenY);
         bufCtx.beginPath();
         this._drawBackground();
         this._drawPillar();
@@ -607,9 +609,9 @@ class DrawEngine {
         this._drawBird();
         this._drawButton();
 
-        bufCtx.fillStyle = '#FFFFFF';
-        console.log("[DrawEngine][OnDraw] " + this.gameMode.gStartX);
-        bufCtx.fillRect(this.gameMode.screenEndX, 0, this.gameMode.gStartX, gScreenY);
+        //bufCtx.fillStyle = '#FFFFFF';
+        //console.log("[DrawEngine][OnDraw] " + this.gameMode.gStartX);
+        //bufCtx.fillRect(this.gameMode.screenEndX, 0, this.gameMode.gStartX, gScreenY);
 
         bufCtx.closePath();
         bufCtx.stroke();
@@ -618,8 +620,11 @@ class DrawEngine {
 
         let startX = this.gameMode.gStartX;
         let scale = this.gameMode.gScale;
-        cvs.drawImage(bufCanvas, startX, 0, gScreenX*scale, gScreenY*scale);
-        // printf("[DrawEngine]", "OnDraw()");
+        let screenX = this.gameMode.gScreenX;
+
+        let bufCanvas = this.gameMode._bufCanvas;
+        cvs.drawImage(bufCanvas, startX, 0, screenX*scale, gScreenY*scale);
+        //printf("[DrawEngine]", "OnDraw() " + gameMode.mode() + ", " + screenX);
     }
 
     setDrawMode(gameMode, drawMode) {
@@ -630,6 +635,7 @@ class DrawEngine {
 
     _drawButton() {
         // printf("[DrawEngine] _drawButton() ", this.game.state());
+        let bufCtx = this.gameMode._bufCtx;
         this.drawMode.drawButton(bufCtx, this.buttonImage, this.gameMode);
     }
 
@@ -640,25 +646,30 @@ class DrawEngine {
             birdFrame = 3;
             this._tick = 0;
         }
+        let bufCtx = this.gameMode._bufCtx;
         this.drawMode.drawBird(bufCtx, this.birdImage, this.circleImage, this.gameMode, birdFrame);
     }
 
     _drawPillar() {
+        let bufCtx = this.gameMode._bufCtx;
         this.drawMode.drawPillar(bufCtx, this.buttonImage, this.gameMode);
     }
 
     _drawEnergy() {
+        let bufCtx = this.gameMode._bufCtx;
         // printf("[DrawEngine] _drawScore()", this.game.score());
         let player1Energy = this.gameMode.energy();
         this.drawMode.drawEnergy(bufCtx, this.buttonImage, player1Energy, 0);
     }
 
     _drawScore() {
+        let bufCtx = this.gameMode._bufCtx;
         // printf("[DrawEngine] _drawScore()", this.game.score());
         this.drawMode.drawScore(bufCtx, this.buttonImage, this.gameMode.score())
     }
 
     _drawBackground() {
+        let bufCtx = this.gameMode._bufCtx;
         let image = [0, 0, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5];
         if (this.gameMode.level() > image.length) {
             this.background_image = 5;

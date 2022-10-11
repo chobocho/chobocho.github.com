@@ -17,7 +17,9 @@ let cvs;
 let canvas;
 
 let bufCanvas;
+let bufCanvas800;
 let bufCtx;
+let bufCtx800;
 
 let floppybird;
 let drawEngine;
