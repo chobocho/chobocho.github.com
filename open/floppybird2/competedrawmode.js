@@ -169,7 +169,6 @@ class CompeteDrawMode extends DrawMode {
             if (x > bx1 && x < bx2 && y > by1 && y < by2) {
                 return P1_PAUSE;
             }
-            return SPACE_KEY;
         }
         return SPACE_KEY;
     }
@@ -214,8 +213,7 @@ class CompeteDrawMode extends DrawMode {
             if (x > bx1 && x < bx2 && y > by1 && y < by2) {
                 return P2_PAUSE;
             }
-            return ARROW_UP_KEY;
         }
-        return ARROW_UP_KEY;
+        return ENTER_KEY;
     }
 }
