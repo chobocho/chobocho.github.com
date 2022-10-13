@@ -11,18 +11,23 @@ function getRandomInt(min, max) {
 class LocalDB {
   constructor() {
     this.DB_NAME = 'FloppyBirdHighScore';
+    this.score = 0;
   }
 
   getScore() {
     let score = localStorage.getItem(this.DB_NAME);
     if (score !== null) {
+      this.score = score;
       return score;
     }
     return 0;
   }
 
   setScore(score) {
-    localStorage.setItem(this.DB_NAME, score);
+    if (score > this.score) {
+      this.score = score;
+      localStorage.setItem(this.DB_NAME, score);
+    }
   }
 }
 

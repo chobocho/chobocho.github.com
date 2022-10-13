@@ -10,8 +10,16 @@ function processKeyEvent(code) {
   switch (code) {
     case SPACE_KEY:
     case Z_KEY:
-      printf("[Main] processKeyEvent: ", "1 UP");
-      gameEngine.moveUp(0);
+      if (gameMode.isGameOverState(0) || gameMode.isPauseState(0)) {
+        if (gameMode.mode() === "COMPETE_MODE") {
+            gameEngine.start(0);
+        } else {
+          gameEngine.allPlayerStart();
+        }
+      } else {
+        printf("[Main] processKeyEvent: ", "1P UP");
+        gameEngine.moveUp(0);
+      }
       break;
     case J_KEY:
     case ARROW_UP_KEY:
@@ -23,13 +31,39 @@ function processKeyEvent(code) {
       }
       break;
     case P_KEY:
-      printf("[Main] processKeyEvent: ", "Pause");
-      gameEngine.pause();
+      printf("[Main] processKeyEvent: ", "All Pause");
+      gameEngine.allPlayerPause();
+      break;
+    case P1_PAUSE:
+      printf("[Main] processKeyEvent: ", "Player1 Pause");
+      gameEngine.pause(0);
+      break;
+    case P2_PAUSE:
+      printf("[Main] processKeyEvent: ", "Player2 Pause");
+      gameEngine.pause(1);
+      break;
+    case P1_START:
+      printf("[Main] processKeyEvent: ", "Player1 Start");
+      gameEngine.start(0);
+      break;
+    case P2_START:
+      printf("[Main] processKeyEvent: ", "Player2 Start");
+      gameEngine.start(1);
       break;
     case ENTER_KEY:
+      if (gameMode.mode() === "COMPETE_MODE") {
+        gameEngine.start(1);
+      } else {
+        gameEngine.allPlayerStart();
+      }
+      break;
     case S_KEY:
-      printf("[Main] processKeyEvent: ", "Start");
-      gameEngine.start();
+      printf("[Main] processKeyEvent: ", "Player1 Start");
+      if (gameMode.mode() === "COMPETE_MODE") {
+        gameEngine.start(0);
+      } else {
+        gameEngine.allPlayerStart();
+      }
       break;
     default:
       break;
@@ -99,6 +133,10 @@ function touchListener(event) {
 function setSingleMode() {
   gameMode = singleMode;
   gBufferX = gameMode.gBufferX;
+
+  canvas.width = gameMode.canvasX();
+  canvas.height = gameMode.canvasY();
+
   gameEngine = new GameEngine(singleMode, scoreDB);
   drawEngine.setDrawMode(singleMode, singleDrawMode);
 }
@@ -107,16 +145,26 @@ function setTogetherMode() {
   gameMode = togetherMode;
   gBufferX = gameMode.gBufferX;
 
-  let width = togetherMode.gBlockSize * 80;
-  let height = togetherMode.gBlockSize * 60;
-
-  canvas.width = width;
-  canvas.height = height;
+  canvas.width = gameMode.canvasX();
+  canvas.height = gameMode.canvasY();
 
   console.log("[Main] canvas", canvas.width, "x", canvas.height);
 
   gameEngine = new GameEngine(togetherMode, scoreDB);
   drawEngine.setDrawMode(togetherMode, togetherDrawMode);
+}
+
+function setCompeteMode() {
+  gameMode = competeMode;
+  gBufferX = gameMode.gBufferX;
+
+  canvas.width = gameMode.canvasX();
+  canvas.height = gameMode.canvasY();
+
+  console.log("[Main] canvas", canvas.width, "x", canvas.height);
+
+  gameEngine = new GameEngine(competeMode, scoreDB);
+  drawEngine.setDrawMode(competeMode, competeDrawMode);
 }
 
 function InitValue() {
@@ -154,41 +202,12 @@ function updateResolution() {
 function resizeCanvas() {
   canvas = document.getElementById("canvas");
 
-  let height = window.innerHeight;
-  let width = window.innerWidth;
-  printf("[MAIN]", "height: " + height);
-  let blockCount = 40;
-  if (gameMode.mode() === "TOGETHER_MODE") {
-    printf("[MAIN]", "together mode");
-    blockCount = 80;
-    if (height < 400 || width < 300) {
-      printf("[main]", "Error: width == 0");
-      width = 400;
-      height = 300;
-    }
-  } else {
-    printf("[MAIN]", "single mode");
-    if (height < 200 || width < 300) {
-      printf("[main]", "Error: width == 0");
-      width = 200;
-      height = 300;
-    }
-  }
-
-  let screenX = width / blockCount;
-  let screenY = height / 60;
-  let blockSize = screenX < screenY ? screenX : screenY;
-  blockSize = Math.round(blockSize);
-  width = blockSize * blockCount;
-  height = blockSize * 60;
-
-  canvas.width = width;
-  canvas.height = height;
-
-  console.log("[Main] windows: ", width, "x", height);
-  console.log("[Main] canvas", canvas.width, "x", canvas.height);
-
   DecisionBlockSize();
+
+  canvas.width = gameMode.canvasX();
+  canvas.height = gameMode.canvasY();
+
+  console.log("[Main] canvas", canvas.width, "x", canvas.height);
 }
 
 function InitCanvas() {
@@ -197,38 +216,36 @@ function InitCanvas() {
 
   bufCanvas = document.createElement("canvas");
   bufCanvas.width = 400;
-  bufCanvas.height = gScreenY;
+  bufCanvas.height = 600;
   bufCtx = bufCanvas.getContext("2d");
+
+  bufCanvas2 = document.createElement("canvas");
+  bufCanvas2.width = 400;
+  bufCanvas2.height = 600;
+  bufCtx2 = bufCanvas2.getContext("2d");
 
   bufCanvas800 = document.createElement("canvas");
   bufCanvas800.width = 800;
-  bufCanvas800.height = gScreenY;
+  bufCanvas800.height = 600;
   bufCtx800 = bufCanvas800.getContext("2d");
 
   initMode.setBufCanvasCtx(bufCanvas, bufCtx);
   singleMode.setBufCanvasCtx(bufCanvas, bufCtx);
   togetherMode.setBufCanvasCtx(bufCanvas800, bufCtx800);
+  competeMode.setBufCanvasCtx(bufCanvas, bufCtx);
+  competeMode.setBufCanvasCtx2(bufCanvas2, bufCtx2);
 }
 
 function DecisionBlockSize() {
-  let blockSize = 40;
-  if (gameMode.mode() === "TOGETHER_MODE") {
-    blockSize = 80;
-  }
-  let screenX = canvas.width / blockSize;
-  let screenY = canvas.height / 60;
-  gBlockSize = screenX < screenY ? screenX : screenY;
-  gStartX = (canvas.width - gBlockSize * blockSize) / 2;
-  gScale = gBlockSize / 10;
-  printf("[main] DecisionBlockSize", "gStartX:" + gStartX + ", scale: " + gScale);
-
   let height = window.innerHeight;
   let width = window.innerWidth;
+
+  console.log("[Main] windows: ", width, "x", height);
 
   initMode.decisionBlockSize(width, height);
   singleMode.decisionBlockSize(width, height);
   togetherMode.decisionBlockSize(width, height);
-  //competeMode.decisionBlockSize(width, height);
+  competeMode.decisionBlockSize(width, height);
 }
 
 const isMobileOS = () => {
@@ -249,11 +266,12 @@ function InitGameMode() {
   initMode = new InitMode(score);
   singleMode = new SingleMode(score);
   togetherMode = new TogetherMode(score);
-  //competeMode = new CompeteMode(score);
+  competeMode = new CompeteMode(score);
 
   initdrawMode = new InitDrawMode();
   togetherDrawMode = new TogetherDrawMode();
   singleDrawMode = new SingDrawMode();
+  competeDrawMode = new CompeteDrawMode();
   gameMode = initMode;
 }
 

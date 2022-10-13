@@ -10,7 +10,8 @@ class PlayMode {
         this.gScreenX = 400;
         this.gScreenY = 600;
         this.gBufferX = 400;
-        this.screenEndX = 0;
+        this._canvasX = 400;
+        this._canvasY = 600;
 
         this._score = [];
         this._score.push(new Score(savedScore));
@@ -26,9 +27,22 @@ class PlayMode {
         this._item[0].setGame(this.floppybird[0]);
     }
 
+    canvasX() {
+        return this._canvasX;
+    }
+
+    canvasY() {
+        return this._canvasY;
+    }
+
     setBufCanvasCtx(bufCanvas, bufCtx) {
         this._bufCanvas = bufCanvas;
         this._bufCtx = bufCtx;
+    }
+
+    setBufCanvasCtx2(bufCanvas, bufCtx) {
+        this._bufCanvas2 = bufCanvas;
+        this._bufCtx2 = bufCtx;
     }
 
     init() {
@@ -63,16 +77,16 @@ class PlayMode {
         return this._score[player].highScore();
     }
 
-    start() {
-        this.floppybird.forEach((e) => e.start());
+    start(player = 0) {
+        this.floppybird[player].start();
     }
 
-    pause() {
-        this.floppybird.forEach((e) => e.pause());
+    pause(player=0) {
+        this.floppybird[player].pause();
     }
 
-    moveDown(acceleration) {
-        this.floppybird.forEach((e) => e.moveDown(acceleration));
+    moveDown(acceleration, player = 0) {
+        this.floppybird[player].moveDown(acceleration);
     }
 
     moveRight(acceleration, player=0) {
@@ -88,40 +102,73 @@ class PlayMode {
     }
 
     score(player=0) {
-        return this._score[player].score();
+        if (player < this._score.length) {
+            return this._score[player].score();
+        }
+        return this._score[0].score();
     }
 
     decisionBlockSize(windowWidth, windowHeight) {
+        if (windowHeight < 200 || windowWidth < 300) {
+            printf("[PlayMode] ", "Error: width == 0");
+            windowWidth = 200;
+            windowHeight = 300;
+        }
+        this._decisionBlockSize(windowWidth, windowHeight);
+    }
+
+    _decisionBlockSize (windowWidth, windowHeight) {
         let screenX = windowWidth / this._blockSize;
         let screenY = windowHeight / 60;
         let blockSize  = screenX < screenY ? screenX : screenY;
-        this.gBlockSize = Math.round(blockSize);
+        this.gBlockSize = Math.round(blockSize)-1;
         let width = this.gBlockSize * this._blockSize;
         this.gScale = this.gBlockSize / 10;
+
+        this._canvasX = width;
+        this._canvasY = this.gBlockSize * 60;
         console.log("[PlayMode] decisionBlockSize", this._mode, " gStartX:" + this.gStartX + ", scale: " + this.gScale);
     }
 
-    level() {
+    level(player = 0) {
+        if (player < this.floppybird.length) {
+            return this.floppybird[player].level();
+        }
         return this.floppybird[0].level();
     }
 
-    item() {
+    item(player = 0) {
+        if (player < this.floppybird.length) {
+            return this.floppybird[player].item();
+        }
         return this.floppybird[0].item();
     }
 
-    pillar() {
+    pillar(player=0) {
+        if (player < this.floppybird.length) {
+            return this.floppybird[player].pillar();
+        }
         return this.floppybird[0].pillar();
     }
 
-    energy() {
+    energy(player = 0) {
+        if (player < this.floppybird.length) {
+            return this.floppybird[player].energy();
+        }
         return this.floppybird[0].energy();
     }
 
-    state() {
+    state(player = 0) {
+        if (player < this.floppybird.length) {
+            return this.floppybird[player].state();
+        }
         return this.floppybird[0].state();
     }
 
-    shield() {
+    shield(player=0) {
+        if (player < this.floppybird.length) {
+            return this.floppybird[player].shield();
+        }
         return this.floppybird[0].shield();
     }
 }
@@ -132,7 +179,6 @@ class InitMode extends PlayMode {
         this._mode = "INIT_MODE";
         this.gScreenX = 400;
         this.gBufferX = 400;
-        this.screenEndX = 400;
         this.init();
     }
 }
@@ -143,7 +189,6 @@ class SingleMode extends PlayMode {
         this._mode = "SINGLE_MODE";
         this.gScreenX = 400;
         this.gBufferX = 400;
-        this.screenEndX = 400;
         this.init();
     }
 }
@@ -160,6 +205,16 @@ class TogetherMode extends PlayMode {
 
         this.init();
     }
+
+    decisionBlockSize(windowWidth, windowHeight) {
+        if (windowHeight < 400 || windowWidth < 300) {
+            printf("[PlayMode][Together] ", "Error: width == 0");
+            windowWidth = 400;
+            windowHeight = 300;
+        }
+
+        this._decisionBlockSize(windowWidth, windowHeight);
+    }
 }
 
 class CompeteMode extends PlayMode {
@@ -167,16 +222,26 @@ class CompeteMode extends PlayMode {
         super(score);
         this._blockSize = 80;
         this.gScreenX = 800;
-        this.gBufferX = 800;
+        this.gBufferX = 400;
         this._mode = "COMPETE_MODE";
         this._score.push(new Score(score));
         this._energy.push(new Energy());
         this._item.push(new Item());
         this._pillar.push(new Pillar(this._item[1]));
-        this.floppybird.push(new FloppyBird(500, 200, this._score[1], this._energy[1], this._item[1], this._pillar[1]));
+        this.floppybird.push(new FloppyBird(100, 200, this._score[1], this._energy[1], this._item[1], this._pillar[1]));
         this._energy[1].register(this.floppybird[1]);
         this._item[1].setGame(this.floppybird[1]);
 
         this.init();
+    }
+
+    decisionBlockSize(windowWidth, windowHeight) {
+        if (windowHeight < 400 || windowWidth < 300) {
+            printf("[PlayMode][Compete] ", "Error: width == 0");
+            windowWidth = 400;
+            windowHeight = 300;
+        }
+
+        this._decisionBlockSize(windowWidth, windowHeight);
     }
 }

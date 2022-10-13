@@ -6,22 +6,23 @@ const P_KEY = 80;
 const S_KEY = 83;
 const Z_KEY = 90;
 
-let gStartX = 0;
-let gBlockSize = 60;
-let gScale = 1.0;
-let gScreenX = 800;
-let gScreenY = 600;
+const P1_START = 1001;
+const P1_PAUSE = 1002;
+const P2_START = 2001;
+const P2_PAUSE = 2002;
+
 let gBufferX = 800;
 
 let cvs;
 let canvas;
 
 let bufCanvas;
+let bufCanvas2;
 let bufCanvas800;
 let bufCtx;
+let bufCtx2;
 let bufCtx800;
 
-let floppybird;
 let drawEngine;
 let gameEngine;
 let scoreDB;

@@ -1,7 +1,8 @@
 class Pillar {
-    constructor(items) {
+    constructor(items, startX=0) {
         this._pillars = [];
         this._items = items;
+        this.startX = startX-60;
     }
 
     init() {
@@ -23,7 +24,7 @@ class Pillar {
             this._pillars[i][0] -= speed;
         }
 
-        if (this._pillars[0][0] < -60) {
+        if (this._pillars[0][0] < this.startX) {
             this._make_new_pillar(speed);
         }
     }
