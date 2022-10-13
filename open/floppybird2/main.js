@@ -9,6 +9,9 @@ function processKeyEvent(code) {
     printf("[Main] processKeyEvent: ", code);
     switch (code) {
         case SPACE_KEY:
+            printf("[Main] processKeyEvent: ", "1P UP");
+            gameEngine.moveUp(0);
+            break;
         case Z_KEY:
             if (gameMode.isGameOverState(0) || gameMode.isPauseState(0)) {
                 if (gameMode.mode() === "COMPETE_MODE") {

@@ -214,6 +214,6 @@ class CompeteDrawMode extends DrawMode {
                 return P2_PAUSE;
             }
         }
-        return ENTER_KEY;
+        return ARROW_UP_KEY;
     }
 }
