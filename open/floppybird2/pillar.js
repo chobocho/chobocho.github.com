@@ -18,7 +18,7 @@ class Pillar {
     }
 
     move(speed = 1) {
-        printf("[Pillar] ", "Speed:" + speed);
+        // printf("[Pillar] ", "Speed:" + speed);
 
         for (let i = 0; i < this._pillars.length; i++) {
             this._pillars[i][0] -= speed;
