@@ -7,7 +7,7 @@ class Score {
 
   init() {
     this._highScore = this._highScore > this._score ? this._highScore : this._score;
-    this._score = 1;
+    this._score = 0;
   }
 
   score() {
