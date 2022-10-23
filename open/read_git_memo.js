@@ -1,4 +1,6 @@
 ﻿function init_git_memo_list() {
+    memoList.push(["게임 포커스", "http://gamefocus.co.kr/", "", "게임,잡지"]);
+    memoList.push(["딥 러닝을 이용한 자연어 처리 입문", "https://wikidocs.net/book/2155", "", "인공지능,ai,dnn"]);
     memoList.push(["WikiHow", "https://ko.wikihow.com/%EB%8C%80%EB%AC%B8", "", "게시판,it"]);
     memoList.push(["개드립", "https://www.dogdrip.net/", "", "유머,정보,게시판"]);
     memoList.push(["파이썬 코딩 도장", "https://dojang.io/course/view.php?id=7", "", "Python, coding"]);
