@@ -59,6 +59,7 @@ class DrawEngine {
         this.buttonImage['single_mode'] = LoadImage(root + singleplay_img);
         this.buttonImage['together_mode'] = LoadImage(root + together_img);
         this.buttonImage['compete_mode'] = LoadImage(root + compete_img);
+        this.buttonImage['question'] = LoadImage(root + question_img);
 
         this.birdImage = [];
         this.birdImage[0] = LoadImage(root + bird01_img);

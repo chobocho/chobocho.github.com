@@ -8,6 +8,21 @@ function OnDraw() {
 function processKeyEvent(code) {
     printf("[Main] processKeyEvent: ", code);
     switch (code) {
+        case ESC_KEY:
+            if (gameMode.mode() === "TOGETHER_MODE" || gameMode.mode() === "SINGLE_MODE") {
+                if (gameMode.isGameOverState(0) || gameMode.isPauseState(0)) {
+                    setInitMode();
+                }
+            } else if (gameMode.mode() === "COMPETE_MODE") {
+                if ((gameMode.isGameOverState(0) && gameMode.isGameOverState(1))
+                    || (gameMode.isPauseState(0) && gameMode.isPauseState(1))) {
+                    setInitMode();
+                }
+            } else {
+                printf("[Main] processKeyEvent: ", "ESC");
+                gameEngine.moveUp(0);
+            }
+            break;
         case SPACE_KEY:
             printf("[Main] processKeyEvent: ", "1P UP");
             gameEngine.moveUp(0);
@@ -138,6 +153,17 @@ function touchListener(event) {
         case "touchmove":
             break;
     }
+}
+
+function setInitMode() {
+    gameMode = initMode;
+    gBufferX = gameMode.gBufferX;
+
+    canvas.width = gameMode.canvasX();
+    canvas.height = gameMode.canvasY();
+
+    gameEngine = new GameEngine(initMode, scoreDB);
+    drawEngine.setDrawMode(initMode, initdrawMode);
 }
 
 function setSingleMode() {

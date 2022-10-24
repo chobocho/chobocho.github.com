@@ -1,4 +1,5 @@
 const ENTER_KEY = 13;
+const ESC_KEY = 27;
 const SPACE_KEY = 32;
 const ARROW_UP_KEY = 38;
 const J_KEY = 74;

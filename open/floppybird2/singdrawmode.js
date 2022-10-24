@@ -91,9 +91,11 @@ class SingDrawMode extends DrawMode {
             this.drawHighScore(bufCtx, buttonImage, highScore);
         } else if (game.isPauseState()) {
             bufCtx.drawImage(buttonImage['resume'], 300 - 200, 100, 200, 100);
+            bufCtx.drawImage(buttonImage['question'], 10, 10, 60, 60);
             this.drawHighScore(bufCtx, buttonImage, highScore);
         } else if (game.isGameOverState()) {
             bufCtx.drawImage(buttonImage['start'], 250 - (250 - 95), 100, 300 * 0.7, 163 * 0.7);
+            bufCtx.drawImage(buttonImage['question'], 10, 10, 60, 60);
             this.drawHighScore(bufCtx, buttonImage, highScore);
         } else if (game.isPlayState()) {
             bufCtx.drawImage(buttonImage['pause'], 10, 10, 60, 60);
@@ -139,6 +141,15 @@ class SingDrawMode extends DrawMode {
             if (x > bx1 && x < bx2 && y > by1 && y < by2) {
                 return S_KEY;
             }
+
+            bx1 = game.gStartX + 10 * game.gScale;
+            bx2 = game.gStartX + 70 * game.gScale;
+            by1 = 10 * game.gScale;
+            by2 = 70 * game.gScale;
+
+            if (x > bx1 && x < bx2 && y > by1 && y < by2) {
+                return ESC_KEY;
+            }
         } else if (game.isGameOverState()) {
             let bx1 = game.gStartX + 95 * game.gScale;
             let bx2 = game.gStartX + (95 + 210) * game.gScale;
@@ -146,6 +157,15 @@ class SingDrawMode extends DrawMode {
             let by2 = (100 + 163 * 0.7) * game.gScale;
             if (x > bx1 && x < bx2 && y > by1 && y < by2) {
                 return S_KEY;
+            }
+
+            bx1 = game.gStartX + 10 * game.gScale;
+            bx2 = game.gStartX + 70 * game.gScale;
+            by1 = 10 * game.gScale;
+            by2 = 70 * game.gScale;
+
+            if (x > bx1 && x < bx2 && y > by1 && y < by2) {
+                return ESC_KEY;
             }
         } else if (game.isPlayState()) {
             let bx1 = game.gStartX + 10 * game.gScale;
