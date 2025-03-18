@@ -235,14 +235,18 @@ class FloppyBird {
     }
     if (this._energy.energy() === 0) {
       this._state = this.GAME_OVER_STATE;
-      this._fail_audio.play();
+      if (this._isPlayMusic) {
+        this._fail_audio.play();
+      }
       return false;
     }
 
     // printf("[FloppyBird] isAlive()", this._x + ", " + this._y + this.core_rect[3]);
     if (this._y + this.core_rect[3] > this._bottom) {
       this._state = this.GAME_OVER_STATE;
-      this._fail_audio.play();
+      if (this._isPlayMusic) {
+        this._fail_audio.play();
+      }
       return false;
     }
 
@@ -258,7 +262,9 @@ class FloppyBird {
         }
 
         this._state = this.GAME_OVER_STATE;
-        this._fail_audio.play();
+        if (this._isPlayMusic) {
+          this._fail_audio.play();
+        }
         return false;
       }
     }
@@ -297,14 +303,12 @@ class FloppyBird {
 
         if (itemType === this._items.ITEM_SHIELD) {
           this.startShield();
-        } if (itemType === this._items.ITEM_COIN) {
-          if (this._isPlayMusic) {
-            this._coin_audio.play();
-          }
+        }
+
+        if (itemType === this._items.ITEM_COIN) {
+          this.playCoinSound();
         } else {
-          if (this._isPlayMusic) {
-            this._item_audio.play();
-          }
+          this.playItemSound();
         }
 
         collision = true;
@@ -315,6 +319,26 @@ class FloppyBird {
     }
     if (collision) {
       this._items.removeItem(idx);
+    }
+  }
+
+  playCoinSound() {
+    if (this._isPlayMusic) {
+      if (!this._coin_audio.paused) {
+        this._coin_audio.pause();
+        this._coin_audio.currentTime = 0;
+      }
+      this._coin_audio.play();
+    }
+  }
+
+  playItemSound() {
+    if (this._isPlayMusic) {
+      if (!this._item_audio.paused) {
+        this._item_audio.pause();
+        this._item_audio.currentTime = 0;
+      }
+      this._item_audio.play();
     }
   }
 
