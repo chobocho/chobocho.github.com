@@ -25,6 +25,10 @@ class FloppyBird {
     this._items = item;
     this._pillar = pillar;
     this._state = this.IDLE_STATE;
+    this._isPlayMusic = true;
+    this._coin_audio = new Audio("data:audio/mp3;base64," + coin_sound);
+    this._item_audio = new Audio("data:audio/mp3;base64," + item_sound);
+    this._fail_audio = new Audio("data:audio/mp3;base64," + fail_sound);
   }
 
   init() {
@@ -231,12 +235,14 @@ class FloppyBird {
     }
     if (this._energy.energy() === 0) {
       this._state = this.GAME_OVER_STATE;
+      this._fail_audio.play();
       return false;
     }
 
     // printf("[FloppyBird] isAlive()", this._x + ", " + this._y + this.core_rect[3]);
     if (this._y + this.core_rect[3] > this._bottom) {
       this._state = this.GAME_OVER_STATE;
+      this._fail_audio.play();
       return false;
     }
 
@@ -252,6 +258,7 @@ class FloppyBird {
         }
 
         this._state = this.GAME_OVER_STATE;
+        this._fail_audio.play();
         return false;
       }
     }
@@ -290,6 +297,14 @@ class FloppyBird {
 
         if (itemType === this._items.ITEM_SHIELD) {
           this.startShield();
+        } if (itemType === this._items.ITEM_COIN) {
+          if (this._isPlayMusic) {
+            this._coin_audio.play();
+          }
+        } else {
+          if (this._isPlayMusic) {
+            this._item_audio.play();
+          }
         }
 
         collision = true;
