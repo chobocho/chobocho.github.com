@@ -17,7 +17,6 @@
     memoList.push(["닌텐도 북미 eshop", "https://www.nintendo.com/games/switch", "", "e shop, usa, nintendo, america"]);
     memoList.push(["닌텐도 eshop", "https://store.nintendo.co.kr/", "", "e shop, 한국, nintendo, korea"]);
     memoList.push(["구미시립중앙도서관", "https://lib.gumi.go.kr/", "", "도서관, 인동, 독서"]);
-    memoList.push(["클하대학교", "https://clhauniv.org/", "", "clubhouse,클럽하우스,대학교"]);
     memoList.push(["Tetris", "http://www.chobocho.com/game/tetris/tetris.html", "", "테트리스, block, game"]);
     memoList.push(["신한생명 운세", "https://www.shinhanlife.co.kr/hp/cdhg0130.do", "", "사주"]);
     memoList.push(["디벨로퍼웍스 코리아 dW Korea - IBM Developer", "https://developer.ibm.com/kr/", "", "ibm, 개발"]);
@@ -28,10 +27,9 @@
     memoList.push(["HP Museum", "https://www.hpmuseum.org/", "", "HP IT 박물관"]);
     memoList.push(["UnderKG", "http://underkg.co.kr/", "", "IT, Mobile, 모바일 소식"]);
     memoList.push(["코딩 도장", "https://dojang.io/", "", "it, study, python, cpp"]);
-    memoList.push(["Repl", "https://repl.it/~", "", "code, study, python, cpp, codig"]);
     memoList.push(["Naver game", "https://game.naver.com", "", "game,naver"]);
     memoList.push(["Trend Talk", "https://news.trendtalk.kr", "", "china, trend, it, mobile, wechat"]);
-    memoList.push(["부산대 학생 커뮤니티", "https://mypnu.net/", "", "communite,게시판,pnu,busan"]);
+    memoList.push(["부산대 학생 커뮤니티", "https://mypnu.net/", "", "community게시판,pnu,busan"]);
     memoList.push(["맥심코리아", "https://www.maximkorea.net/", "", "maxim, 19, 잡지"]);
     memoList.push(["월간 HR Insight", "https://www.hrinsight.co.kr/", "", "HR, 인사, 잡지"]);
     memoList.push(["p5js", "https://editor.p5js.org/", "", "javascript,자바스크립트,온라인,에디터"]);
