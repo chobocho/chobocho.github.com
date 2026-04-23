@@ -1,3 +1,7 @@
+#### [Home](../index.md)
+
+---
+
 ## 파일 읽기 예제
 ```
 def readfile(filename):

@@ -2,6 +2,13 @@
 
 ## 2026-04-23
 
+### 콘텐츠 파일 Home 백링크 일관화
+- 백링크가 없던 콘텐츠 `.md` 파일 21개 상단에 `#### [Home](../index.md)` + 구분선(`---`) 삽입.
+- 대상: `chinese/*`, `english/en_wordbook01.md`, `go/make_folder.md`, `japanese/jp_wordbook01.md`, `javascript/add_google_search.md`, `dictionary/index.md`, `python/` 내 백링크 미보유 파일 16개.
+- 기존에 백링크가 있던 5개 파일(`python/wxpython.md`, `python/git_gc.md`, `python/lfsr.md`, `python/folder.md`, `linux/awk.md`)은 건드리지 않음.
+- 빈 파일 `javascript/example001.md`는 다음 이슈에서 처리.
+- 검증: 26개 콘텐츠 파일 모두 Home 백링크 포함 (grep 확인).
+
 ### 시각 디자인 경량 개선 (cayman 확장)
 - `_config.yml`에 `title`, `description`, `show_downloads: false` 추가해 헤더 문구 개선 및 불필요한 Download 버튼 제거.
 - `assets/css/style.scss` 신규 작성. cayman 테마를 `@import`한 뒤 본문(`.main-content`)의 줄간격·리스트 간격·섹션 마진을 조금씩 확장.

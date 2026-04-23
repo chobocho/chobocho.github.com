@@ -1,3 +1,7 @@
+#### [Home](../index.md)
+
+---
+
 ## 3초마다 특정 작업을 반복 수행하는 코드  
 ```
 import threading

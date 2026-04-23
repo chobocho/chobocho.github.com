@@ -1,3 +1,7 @@
+#### [Home](../index.md)
+
+---
+
 # fisher-yates shuffle   
 
 ```

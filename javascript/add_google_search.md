@@ -1,3 +1,7 @@
+#### [Home](../index.md)
+
+---
+
 ```
 <div>
   <div>Search Google</div>
