@@ -2,6 +2,9 @@
 
 ## 2026-04-23
 
+### 빈 파일 정리
+- 0 바이트 상태였고 어느 곳에서도 링크되지 않던 `javascript/example001.md`를 삭제.
+
 ### 콘텐츠 파일 Home 백링크 일관화
 - 백링크가 없던 콘텐츠 `.md` 파일 21개 상단에 `#### [Home](../index.md)` + 구분선(`---`) 삽입.
 - 대상: `chinese/*`, `english/en_wordbook01.md`, `go/make_folder.md`, `japanese/jp_wordbook01.md`, `javascript/add_google_search.md`, `dictionary/index.md`, `python/` 내 백링크 미보유 파일 16개.
