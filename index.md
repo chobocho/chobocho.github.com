@@ -7,9 +7,9 @@ Chobocho의 학습·개발 노트 모음입니다.
 ## 🛠 Programming Languages
 - [C](c/README.md)
 - [C++](cpp/README.md)
-- [Go — Make folder](go/make_folder.md)
+- [Go](go/README.md)
 - [Java](java/README.md)
-- [JavaScript — 구글 검색창 달기](javascript/add_google_search.md)
+- [JavaScript](javascript/README.md)
 - [Kotlin](kotlin/README.md)
 - [Python](#-python-notes) — 아래 세부 항목 참고
 
@@ -21,7 +21,7 @@ Chobocho의 학습·개발 노트 모음입니다.
 - [Computer](computer/README.md)
 - [Design Pattern](designpattern/README.md)
 - [UML](uml/README.md)
-- [Linux — Awk](linux/awk.md)
+- [Linux](linux/README.md)
 - [Mathematics](math/README.md)
 
 ---

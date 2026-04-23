@@ -1,3 +1,7 @@
+#### [Home](../index.md)
+
+---
+
 # Design pattern
 
 ## Strategy pattern
