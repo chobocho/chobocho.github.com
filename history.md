@@ -2,6 +2,11 @@
 
 ## 2026-04-23
 
+### 시각 디자인 경량 개선 (cayman 확장)
+- `_config.yml`에 `title`, `description`, `show_downloads: false` 추가해 헤더 문구 개선 및 불필요한 Download 버튼 제거.
+- `assets/css/style.scss` 신규 작성. cayman 테마를 `@import`한 뒤 본문(`.main-content`)의 줄간격·리스트 간격·섹션 마진을 조금씩 확장.
+- `prefers-color-scheme: dark` 미디어 쿼리로 다크모드 팔레트 추가 (GitHub 다크 배경/전경 톤 사용). 헤더 그라디언트는 cayman 원본 유지.
+
 ### 폴더별 README 일관성 확보
 - README.md가 없던 7개 폴더에 신규 README.md 추가: `chinese`, `english`, `go`, `japanese`, `javascript`, `linux`, `python`.
 - 껍데기 상태였던 7개 README.md에 공통 템플릿(Home 백링크 + 제목) 적용: `c`, `cpp`, `java`, `kotlin`, `math`, `nodejs`, `uml`.
