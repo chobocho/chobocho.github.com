@@ -17,7 +17,6 @@
     memoList.push(["닌텐도 북미 eshop", "https://www.nintendo.com/games/switch", "", "e shop, usa, nintendo, america"]);
     memoList.push(["닌텐도 eshop", "https://store.nintendo.co.kr/", "", "e shop, 한국, nintendo, korea"]);
     memoList.push(["구미시립중앙도서관", "https://lib.gumi.go.kr/", "", "도서관, 인동, 독서"]);
-    memoList.push(["Tetris", "http://www.chobocho.com/game/tetris/tetris.html", "", "테트리스, block, game"]);
     memoList.push(["신한생명 운세", "https://www.shinhanlife.co.kr/hp/cdhg0130.do", "", "사주"]);
     memoList.push(["디벨로퍼웍스 코리아 dW Korea - IBM Developer", "https://developer.ibm.com/kr/", "", "ibm, 개발"]);
     memoList.push(["모던 JavaScript 튜토리얼", "https://ko.javascript.info/", "", "개발, javascript, 자바스크립트"]);
