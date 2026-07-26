@@ -11,8 +11,8 @@
     memoList.push(["Doom world", "https://www.doomworld.com/", "", "game,doom,it,둠"]);
     memoList.push(["Doom wiki", "https://doomwiki.org/wiki/Entryway", "", "doom,둠,wiki"]);
     memoList.push(["파비앙 사이트", "https://fabiensanglard.net/", "", "doom,game engine,game"]);
-    memoList.push(["Google document", "https://docs.google.com/document/u/0/", "", "document,google,word,워드"]);
-    memoList.push(["Google Sheet", "https://docs.google.com/spreadsheets/u/0/", "", "sheet,google,시트"]);
+    memoList.push(["Google document", "https://docs.google.com/document/u/0/", "", "document,google,word,문서,워드"]);
+    memoList.push(["Google Sheet", "https://docs.google.com/spreadsheets/u/0/", "", "sheet,google,스프레,시트,구글"]);
     memoList.push(["Gdrive", "https://drive.google.com/drive/u/0/my-drive", "", "구글 드라이브,drive,hard,google,cloud"]);
     memoList.push(["닌텐도 북미 eshop", "https://www.nintendo.com/games/switch", "", "e shop, usa, nintendo, america"]);
     memoList.push(["닌텐도 eshop", "https://store.nintendo.co.kr/", "", "e shop, 한국, nintendo, korea"]);
@@ -40,7 +40,7 @@
     memoList.push(["오늘의 유머 베스트 게시판", "http://m.todayhumor.co.kr/list.php?table=bestofbest"]);
     memoList.push(["오늘의 유머", "http://m.todayhumor.co.kr/"]);
     memoList.push(["82cook", "https://www.82cook.com/entiz/enti.php?bn=15"]);
-	memoList.push(["Google ppt", "https://docs.google.com/presentation/u/0/"]);
+	memoList.push(["Google ppt", "https://docs.google.com/presentation/u/0/", "", "sheet,google,스프레,시트,구글"]);
     memoList.push(["일 잘하는 법", "https://www.google.com/search?q=site%3Aclien.net+%EC%9D%BC%EC%9E%98%ED%95%98&rlz=1C1FKPE_koKR929KR929&sxsrf=ALeKk01qPcR4wDIo7QdUos329F6iiagZ0g%3A1626104295103&ei=52HsYNvbBZCE-Abg0pDoAw&oq=site%3Aclien.net+%EC%9D%BC%EC%9E%98%ED%95%98&gs_lcp=Cgdnd3Mtd2l6EANKBAhBGAFQ4A9YnBlg0xtoAXAAeACAAWaIAYwDkgEDMi4ymAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=gws-wiz&ved=0ahUKEwib64HH7t3xAhUQAt4KHWApBD0Q4dUDCA4&uact=5"]);
   }
 
